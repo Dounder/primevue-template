@@ -9,9 +9,9 @@ export const useConfigStore = defineStore('config', () => {
 
   const setAppTheme = () => {
     const element = document.querySelector('html')
-    element?.classList.remove('app-dark')
+    element?.classList.remove('dark')
 
-    if (theme.value === 'dark') element?.classList.add('app-dark')
+    if (theme.value === 'dark') element?.classList.add('dark')
   }
 
   const toggleTheme = () => {
