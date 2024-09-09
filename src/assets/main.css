@@ -3,20 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* expand vue transition */
-.expand-leave-active,
-.expand-enter-active {
-  transition: all 100ms ease-in-out;
-  overflow: hidden;
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
-.expand-enter-to,
-.expand-leave-from {
-  height: 1.5rem;
-}
-
-.expand-enter-from,
-.expand-leave-to {
-  opacity: 0;
-  height: 0;
+.debug {
+  @apply border border-red-500;
 }

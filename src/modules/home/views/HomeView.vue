@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import { useConfigStore } from '@shared/stores/config.store'
+import { useAuthStore } from '@/modules/auth/store/auth.store'
 
-const { setAppTheme, toggleTheme } = useConfigStore()
-
-setAppTheme()
+const authStore = useAuthStore()
 </script>
 
 <template>
-  <div class="w-[100swh] h-[100svh] flex flex-col items-center justify-center space-y-4">
-    <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    <Button label="Toggle Color Scheme" @click="toggleTheme()" />
-  </div>
+  <h1 className="text-center text-3xl font-bold underline">Welcome! {{ authStore.username }}</h1>
 </template>

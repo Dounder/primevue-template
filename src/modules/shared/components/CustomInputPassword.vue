@@ -9,11 +9,16 @@ interface Props {
   size?: 'large' | 'small'
   variant?: 'outlined' | 'filled'
   loading?: boolean
+  feedback?: boolean
+  toggleMask?: boolean
   invalid?: boolean
   autofocus?: boolean
 }
 
-defineProps<Props>()
+withDefaults(defineProps<Props>(), {
+  feedback: false,
+  toggleMask: true
+})
 
 defineEmits(['update:modelValue', 'blur'])
 </script>
@@ -21,7 +26,7 @@ defineEmits(['update:modelValue', 'blur'])
 <template>
   <div class="flex flex-col gap-2">
     <label v-if="label" :for="id">{{ label }}</label>
-    <InputText
+    <Password
       :id="id"
       :model-value="modelValue"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement)?.value || '')"
@@ -34,6 +39,8 @@ defineEmits(['update:modelValue', 'blur'])
       fluid
       :disabled="disabled"
       :loading="loading"
+      :feedback="feedback"
+      :toggle-mask="toggleMask"
       :autofocus="autofocus"
     />
     <transition name="p-message" tag="div" class="flex flex-col">

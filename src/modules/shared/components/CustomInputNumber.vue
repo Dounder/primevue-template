@@ -17,6 +17,8 @@ interface Props {
   prefix?: string
   currency?: string
   loading?: boolean
+  invalid?: boolean
+  autofocus?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
@@ -41,7 +43,7 @@ defineEmits(['update:modelValue', 'blur'])
       @input="$emit('update:modelValue', $event.value)"
       @blur="$emit('blur')"
       :aria-describedby="`${id}-help`"
-      :invalid="Boolean(error)"
+      :invalid="invalid || Boolean(error)"
       :placeholder="placeholder"
       :size="size"
       :variant="variant"
@@ -57,9 +59,10 @@ defineEmits(['update:modelValue', 'blur'])
       fluid
       :disabled="disabled"
       :loading="loading"
+      :autofocus="autofocus"
     />
-    <transition name="expand">
-      <small v-if="error" :id="`${id}-help`" class="text-red-500">{{ error }}</small>
+    <transition name="p-message" tag="div" class="flex flex-col">
+      <Message v-if="error" severity="error">{{ error }}</Message>
     </transition>
   </div>
 </template>

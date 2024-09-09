@@ -14,13 +14,16 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@primevue/themes": "^4.0.0",
+    "@primevue/themes": "^4.0.5",
     "@tanstack/vue-query": "^5.51.5",
     "@tanstack/vue-query-devtools": "^5.51.5",
     "@vueuse/core": "^10.11.0",
     "axios": "^1.7.2",
+    "joi": "^17.13.3",
     "pinia": "^2.1.7",
-    "primevue": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.0.5",
+    "tailwindcss-primeui": "^0.3.4",
     "vee-validate": "^4.13.2",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3",
